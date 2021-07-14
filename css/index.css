@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #fff;
+    --text: #231f20;
+    --text-active: #8b8d90;
+    --border: #d1d3d4;
+}
+
+.noir {
+    --background: #231f20;
+    --text: #fff;
+    --text-active: #e3e4e5;
+    --border: #323031;
+}
+
+body {
+    padding: 2rem;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Roboto Condensed', Bahnschrift, system-ui, 'Source Han Sans TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+a {
+    color: var(--text);
+    transition: color .15s ease;
+}
+
+a:hover, a:active {
+    color: var(--text-active);
+}
+
+p {
+    line-height: 1.5;
+    margin: .75em 0;
+}
+
+#map {
+    background: var(--border);
+    margin: 0;
+    padding: .5rem;
+    line-height: 1;
+    user-select: none;
+    transition: transform .15s ease;
+}
+
+#map:hover { transform: scale(1.05);  }
+
+#map img {
+    width: 100%;
+    min-height: 100%;
+}
+
+#map .noir { display: none;  }
+.noir #map .blanc { display: none;  }
+.noir #map .noir { display: initial;  }
+
+.icon:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.red.icon:before { background: #ee202d; }
+.blue.icon:before { background: #006fba; }
+.green.icon:before { background: #008841; }
+.orange.icon:before { background: #b29105; }
+
+#intro {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+footer {
+    font-size: .875rem;
+}
+
+@media screen and (min-width: 40em) {
+    body {
+        padding: 2rem calc((100vw - 36rem) / 2);
+    }
+}
+
+@media screen and (min-width: 60em) {
+    body {
+        padding: 2rem 3rem 2rem calc(100vw - 39rem);
+    }
+
+    #map {
+        position: fixed;
+        top: 3rem;
+        left: 3rem;
+        width: calc(100vw - 46rem);
+    }
+}
+
+@media screen and (min-width: 78em) {
+    body {
+        padding: 2rem calc((100vw - 72rem) / 3) 2rem calc((100vw - 72rem) / 3 * 2 + 36rem);
+    }
+
+    #map {
+        top: calc(max((100vh - 50rem) / 2, -2.5rem));
+        left: calc((100vw - 72rem) / 3);
+        width: 36rem;
+    }
+}
+
+@media screen and (min-width: 108em)  {
+    #map {
+        top: calc(max((100vh - 64rem) / 2, -3.125rem));
+        left: calc((66.67vw - 57rem) / 2);
+        width: 45rem;
+    }
+}
