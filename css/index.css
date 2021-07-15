@@ -35,6 +35,11 @@ a:hover, a:active {
     color: var(--text-active);
 }
 
+a.note {
+    padding: 0 .05em;
+    text-decoration: none;
+}
+
 p {
     line-height: 1.5;
     margin: .75em 0;
@@ -74,6 +79,10 @@ p {
 .blue.icon:before { background: #006fba; }
 .green.icon:before { background: #008841; }
 .orange.icon:before { background: #b29105; }
+
+label {
+    display: block;
+}
 
 input[type="checkbox"] {
     min-width: 1em;
