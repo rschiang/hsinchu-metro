@@ -74,7 +74,7 @@ p {
     height: 1em;
     margin-right: .4em;
     border-radius: 50%;
-    vertical-align: middle;
+    vertical-align: text-top;
 }
 
 .red.icon:before { background: #ee202d; }
