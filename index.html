@@ -23,11 +23,25 @@
 <body>
 	<h1>新竹輕軌：未來路網圖</h1>
 	<figure id="map"><a href="resources/lrt-map@2x.png" class="blanc"><img alt="新竹輕軌路網圖 Hsinchu LRT System Map / © Poren Chiang 2021, CC BY-NC-SA 4.0" src="resources/lrt-map.png" sizes="100vw" srcset="resources/lrt-map.png 1440w, resources/lrt-map@2x.png 2880w"></a><a href="resources/lrt-map-noir@2x.png" class="noir"><img alt="新竹輕軌路網圖 Hsinchu LRT System Map / © Poren Chiang 2021, CC BY-NC-SA 4.0" src="resources/lrt-map-noir.png" sizes="100vw" srcset="resources/lrt-map-noir.png 1440w, resources/lrt-map-noir@2x.png 2880w"></a></figure>
+	<form id="toggleForm" hidden>
+		<label for="lightSwitch"><input type="checkbox" id="lightSwitch"> 深色背景</label>
+	</form>
 	<article>
 	</article>
 	<footer>
 		<p>© <a href="https://poren.tw/" rel="author">Poren Chiang</a> 2021，以 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC「姓名標示─非商業性─相同方式分享」4.0 國際公眾授權條款">CC BY-NC-SA 4.0</a> 授權條款釋出予公眾免費分享、重製、改作、以及非商業利用。其他目的使用亦可<a href="mailto:hi@poren.tw">來信詢問</a>。</p>
 		<p>本作品純屬創作、僅供參考，與新竹縣／市政府、台灣鐵路管理局、台灣高鐵公司或任何提及之法人團體並無關聯。</p>
 	</footer>
+	<script>
+		window.addEventListener('DOMContentLoaded', (() => {
+			let setDarkMode = (value) => {
+				lightSwitch.checked = value;
+				document.documentElement.className = (value ? 'noir' : 'blanc');
+			};
+			setDarkMode(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			lightSwitch.addEventListener('input', (e) => { setDarkMode(e.target.checked); e.stopPropagation() });
+			toggleForm.removeAttribute('hidden');
+		}));
+	</script>
 </body>
 </html>
