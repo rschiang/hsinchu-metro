@@ -8,6 +8,8 @@
     --text-active: #8b8d90;
     --text-alt: #8b8d90;
     --border: #d1d3d4;
+    --left-column: 0rem;
+    --edge: 2rem;
 }
 
 .noir {
@@ -19,7 +21,7 @@
 }
 
 body {
-    padding: 2rem;
+    padding: 2rem var(--edge) 2rem calc(var(--edge) + var(--left-column));
     background: var(--background);
     color: var(--text);
     font-family: 'Roboto Condensed', Bahnschrift, system-ui, 'Source Han Sans TC', 'Microsoft JhengHei', sans-serif;
@@ -84,6 +86,8 @@ p {
 
 label {
     display: block;
+    padding: .5em 0;
+    color:  var(--text-alt);
 }
 
 input[type="checkbox"] {
@@ -99,33 +103,38 @@ footer, footer a {
     color: var(--text-alt);
 }
 
+@media screen and (max-width: 40em) {
+    i.wbr { display: block; }
+}
+
 @media screen and (min-width: 40em) {
     body {
-        padding: 2rem calc((100vw - 36rem) / 2);
+        --edge: calc((100vw - 36rem) / 2);
     }
 }
 
 @media screen and (min-width: 60em) {
     body {
-        padding: 2rem 3rem 2rem calc(100vw - 39rem);
+        --edge: 3rem;
+        --left-column: calc(100vw - 42rem);
     }
 
     #map {
         position: fixed;
         top: 3rem;
-        left: 3rem;
-        width: calc(100vw - 46rem);
+        left: var(--edge);
+        width: calc(var(--left-column) - var(--edge));
     }
 }
 
 @media screen and (min-width: 78em) {
     body {
-        padding: 2rem calc((100vw - 72rem) / 3) 2rem calc((100vw - 72rem) / 3 * 2 + 36rem);
+        --edge: calc((100vw - 72rem) / 3);
+        --left-column: calc(var(--edge) + 36rem);
     }
 
     #map {
         top: calc(max((100vh - 50rem) / 2, -2.5rem));
-        left: calc((100vw - 72rem) / 3);
         width: 36rem;
     }
 }
@@ -133,7 +142,7 @@ footer, footer a {
 @media screen and (min-width: 108em)  {
     #map {
         top: calc(max((100vh - 64rem) / 2, -3.125rem));
-        left: calc((66.67vw - 57rem) / 2);
+        left: calc(var(--edge) - 4.5rem);
         width: 45rem;
     }
 }
